@@ -37,6 +37,11 @@ const Home = ({ countries }: HomeProps) => {
     setShownCountries(filtered);
   }
 
+  function filterByRegion(region: string) {
+    const filtered = countries.filter((country) => country.region === region);
+    setShownCountries(filtered);
+  }
+
   return (
     <div>
       <Head>
@@ -50,7 +55,7 @@ const Home = ({ countries }: HomeProps) => {
       >
         <Header />
         <SearchInput onSearch={searchCountries} />
-        <ContinentDropdown />
+        <ContinentDropdown onClick={filterByRegion} />
         <CountryList countries={shownCountries} />
       </main>
     </div>
