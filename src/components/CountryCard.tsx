@@ -1,19 +1,27 @@
 import Card from "react-bootstrap/Card";
+import { Country } from "../utils/types";
 
-const CountryCard = () => {
+interface CountryCardProps {
+  country: Country;
+}
+
+const CountryCard = ({ country }: CountryCardProps) => {
+  const { name, capital, population, region, flags } = country;
+
   return (
     <Card className="my-4 border border-0 shadow-sm" style={{ width: "80vw" }}>
-      <Card.Img variant="top" src="holder.js/100px180" />
-      <Card.Body>
-        <Card.Title className="fw-bold">Country Name</Card.Title>
+      <Card.Img variant="top" src={flags.png} />
+      <Card.Body className="p-4 pb-5">
+        <Card.Title className="fw-bold">{name.common}</Card.Title>
         <Card.Text>
-          <span className="fw-semibold">Population:</span> 1000
+          <span className="fw-semibold">Population:</span>{" "}
+          {population.toLocaleString("en-US")}
         </Card.Text>
         <Card.Text>
-          <span className="fw-semibold">Region:</span> Continent
+          <span className="fw-semibold">Region:</span> {region}
         </Card.Text>
         <Card.Text>
-          <span className="fw-semibold">Capital:</span> Capital
+          <span className="fw-semibold">Capital:</span> {capital}
         </Card.Text>
       </Card.Body>
     </Card>

@@ -1,11 +1,32 @@
-import type { NextPage } from "next";
 import Head from "next/head";
 import ContinentDropdown from "../src/components/ContinentDropdown";
-import CountryCard from "../src/components/CountryCard";
+import CountryList from "../src/components/CountryList";
 import Header from "../src/components/Header";
 import SearchInput from "../src/components/SearchInput";
+import { Country } from "../src/utils/types";
 
-const Home: NextPage = () => {
+export async function getStaticProps() {
+  try {
+    const res = await fetch(
+      "https://restcountries.com/v3.1/all?fields=cioc,name,flags,population,region,capital"
+    );
+    const countries = await res.json();
+
+    return {
+      props: {
+        countries,
+      },
+    };
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+interface HomeProps {
+  countries: Country[];
+}
+
+const Home = ({ countries }: HomeProps) => {
   return (
     <div>
       <Head>
@@ -20,7 +41,7 @@ const Home: NextPage = () => {
         <Header />
         <SearchInput />
         <ContinentDropdown />
-        <CountryCard />
+        <CountryList countries={countries} />
       </main>
     </div>
   );
