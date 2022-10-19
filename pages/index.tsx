@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { useState } from "react";
 import ContinentDropdown from "../src/components/ContinentDropdown";
 import CountryList from "../src/components/CountryList";
 import Header from "../src/components/Header";
@@ -27,6 +28,15 @@ interface HomeProps {
 }
 
 const Home = ({ countries }: HomeProps) => {
+  const [shownCountries, setShownCountries] = useState(countries);
+
+  function searchCountries(str: string) {
+    const filtered = countries.filter((country) =>
+      country.name.common.toLowerCase().startsWith(str.toLowerCase())
+    );
+    setShownCountries(filtered);
+  }
+
   return (
     <div>
       <Head>
@@ -39,9 +49,9 @@ const Home = ({ countries }: HomeProps) => {
         style={{ height: "100vh" }}
       >
         <Header />
-        <SearchInput />
+        <SearchInput onSearch={searchCountries} />
         <ContinentDropdown />
-        <CountryList countries={countries} />
+        <CountryList countries={shownCountries} />
       </main>
     </div>
   );
