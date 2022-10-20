@@ -9,7 +9,7 @@ import { Country } from "../src/utils/types";
 export async function getStaticProps() {
   try {
     const res = await fetch(
-      "https://restcountries.com/v3.1/all?fields=cioc,name,flags,population,region,capital"
+      "https://restcountries.com/v3.1/all?fields=cioc,name,flags,population,region,capital,subregion,tld,currencies,borders"
     );
     const countries = await res.json();
 

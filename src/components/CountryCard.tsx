@@ -1,15 +1,21 @@
 import Card from "react-bootstrap/Card";
 import { Country } from "../utils/types";
+import { useRouter } from "next/router";
 
 interface CountryCardProps {
   country: Country;
 }
 
 const CountryCard = ({ country }: CountryCardProps) => {
+  const router = useRouter();
   const { name, capital, population, region, flags } = country;
 
   return (
-    <Card className="my-4 border border-0 shadow-sm" style={{ width: "80vw" }}>
+    <Card
+      className="my-4 border border-0 shadow-sm"
+      style={{ width: "80vw" }}
+      onClick={() => router.push(`/${name.common.toLowerCase()}`)}
+    >
       <Card.Img variant="top" src={flags.png} />
       <Card.Body className="p-4 pb-5">
         <Card.Title className="fw-bold">{name.common}</Card.Title>
