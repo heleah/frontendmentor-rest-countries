@@ -8,13 +8,13 @@ interface CountryCardProps {
 
 const CountryCard = ({ country }: CountryCardProps) => {
   const router = useRouter();
-  const { name, capital, population, region, flags } = country;
+  const { name, capital, population, region, flags, cca3 } = country;
 
   return (
     <Card
       className="my-4 border border-0 shadow-sm"
       style={{ width: "80vw" }}
-      onClick={() => router.push(`/${name.common.toLowerCase()}`)}
+      onClick={() => router.push(`/${cca3.toLowerCase()}`)}
     >
       <Card.Img variant="top" src={flags.png} />
       <Card.Body className="p-4 pb-5">

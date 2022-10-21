@@ -5,7 +5,7 @@ export type Country = {
     nativeName: { [lang: string]: { official: string; common: string } };
   };
   tld: string;
-  cioc: string;
+  cca3: string;
   currencies: { [curr: string]: { name: string; symbol: string } };
   capital: [];
   region: string;
