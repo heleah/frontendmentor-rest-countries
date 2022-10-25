@@ -4,18 +4,22 @@ export type Country = {
     official: string;
     nativeName: { [lang: string]: { official: string; common: string } };
   };
-  tld: string;
+  tld: string[];
   cca3: string;
-  currencies: { [curr: string]: { name: string; symbol: string } };
+  currencies: any;
   capital: [];
   region: string;
   subregion: string;
-  languages: Language;
+  languages: any;
   borders: string[];
   population: number;
   flags: { png: string; svg: string };
 };
 
+/* type Currency = {
+  [curr: string]: string;
+};
+
 type Language = {
   [short: string]: string;
-};
+}; */
