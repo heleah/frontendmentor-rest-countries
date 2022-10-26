@@ -16,7 +16,7 @@ const CountryCard = ({ country }: CountryCardProps) => {
       style={{ width: "80vw" }}
       onClick={() => router.push(`/${cca3.toLowerCase()}`)}
     >
-      <Card.Img variant="top" src={flags.png} />
+      <Card.Img variant="top" src={flags.png} role="button" />
       <Card.Body className="p-4 pb-5">
         <Card.Title className="fw-bold">{name.common}</Card.Title>
         <Card.Text>

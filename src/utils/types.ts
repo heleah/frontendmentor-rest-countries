@@ -1,9 +1,5 @@
 export type Country = {
-  name: {
-    common: string;
-    official: string;
-    nativeName: { [lang: string]: { official: string; common: string } };
-  };
+  name: CountryName;
   tld: string[];
   cca3: string;
   currencies: any;
@@ -14,6 +10,16 @@ export type Country = {
   borders: string[];
   population: number;
   flags: { png: string; svg: string };
+};
+
+type CountryName = {
+  common: string;
+  official: string;
+  nativeName: { [lang: string]: { official: string; common: string } };
+};
+
+export type Border = {
+  name: CountryName;
 };
 
 /* type Currency = {

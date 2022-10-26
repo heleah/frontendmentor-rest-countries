@@ -1,6 +1,6 @@
 import Header from "../src/components/Header";
 import Button from "react-bootstrap/Button";
-import { Country } from "../src/utils/types";
+import { Country, Border } from "../src/utils/types";
 import CountryDetails from "../src/components/CountryDetails";
 import { useRouter } from "next/router";
 
@@ -22,8 +22,17 @@ export async function getStaticProps({ params }: any) {
     );
     const country = await res.json();
 
+    const borders = await Promise.all(
+      country.borders?.map(async (border: string) => {
+        const res = await fetch(
+          `https://restcountries.com/v3.1/alpha/${border}?fields=name`
+        );
+        return await res.json();
+      })
+    );
+
     return {
-      props: { country },
+      props: { country, borders },
     };
   } catch (e) {
     console.log(e);
@@ -32,10 +41,11 @@ export async function getStaticProps({ params }: any) {
 
 interface DetailsPageProps {
   country: Country;
+  borders: Border[];
 }
 
-const DetailsPage = ({ country }: DetailsPageProps) => {
-  const { isFallback } = useRouter();
+const DetailsPage = ({ country, borders }: DetailsPageProps) => {
+  const { push, isFallback } = useRouter();
 
   return (
     <>
@@ -45,10 +55,15 @@ const DetailsPage = ({ country }: DetailsPageProps) => {
           variant="light"
           className="my-4 shadow"
           style={{ width: "fit-content" }}
+          onClick={() => push("/")}
         >
           Back
         </Button>
-        {isFallback ? <p>Loading...</p> : <CountryDetails country={country} />}
+        {isFallback ? (
+          <p>Loading...</p>
+        ) : (
+          <CountryDetails country={country} borders={borders} />
+        )}
       </main>
     </>
   );

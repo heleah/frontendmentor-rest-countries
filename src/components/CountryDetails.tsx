@@ -1,12 +1,13 @@
 import Image from "react-bootstrap/Image";
 import Badge from "react-bootstrap/Badge";
-import { Country } from "../utils/types";
+import { Country, Border } from "../utils/types";
 
 interface CountryDetailsProps {
   country: Country;
+  borders: Border[];
 }
 
-const CountryDetails = (props: CountryDetailsProps) => {
+const CountryDetails = ({ country, borders }: CountryDetailsProps) => {
   const {
     flags,
     name,
@@ -17,13 +18,10 @@ const CountryDetails = (props: CountryDetailsProps) => {
     tld,
     currencies,
     languages,
-    borders,
-  } = props.country;
-
-  console.log("details", props.country);
+  } = country;
 
   return (
-    props.country && (
+    country && (
       <>
         <Image
           src={flags.png}
@@ -76,12 +74,12 @@ const CountryDetails = (props: CountryDetailsProps) => {
               <h5>Border Countries:</h5>
               {Object.values(borders).map((border) => (
                 <Badge
-                  key={border}
+                  key={border.name.common}
                   bg="light"
                   text="dark"
                   className="m-1 p-2 shadow"
                 >
-                  {border}
+                  {border.name.common}
                 </Badge>
               ))}
             </>
