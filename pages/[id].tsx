@@ -25,7 +25,7 @@ export async function getStaticProps({ params }: any) {
     const borders = await Promise.all(
       country.borders?.map(async (border: string) => {
         const res = await fetch(
-          `https://restcountries.com/v3.1/alpha/${border}?fields=name`
+          `https://restcountries.com/v3.1/alpha/${border}?fields=name,cca3`
         );
         return await res.json();
       })

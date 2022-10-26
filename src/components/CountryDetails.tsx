@@ -1,6 +1,7 @@
 import Image from "react-bootstrap/Image";
-import Badge from "react-bootstrap/Badge";
+import Button from "react-bootstrap/Button";
 import { Country, Border } from "../utils/types";
+import { useRouter } from "next/router";
 
 interface CountryDetailsProps {
   country: Country;
@@ -20,6 +21,8 @@ const CountryDetails = ({ country, borders }: CountryDetailsProps) => {
     languages,
   } = country;
 
+  const router = useRouter();
+
   return (
     country && (
       <>
@@ -27,7 +30,7 @@ const CountryDetails = ({ country, borders }: CountryDetailsProps) => {
           src={flags.png}
           alt={`Flag of ${name.common}`}
           className="py-4"
-          style={{ width: "inherit" }}
+          style={{ maxWidth: "300px" }}
         />
         <section className="lh-lg">
           <h3>{name.common}</h3>
@@ -73,14 +76,14 @@ const CountryDetails = ({ country, borders }: CountryDetailsProps) => {
             <>
               <h5>Border Countries:</h5>
               {Object.values(borders).map((border) => (
-                <Badge
+                <Button
                   key={border.name.common}
-                  bg="light"
-                  text="dark"
+                  variant="light"
                   className="m-1 p-2 shadow"
+                  onClick={() => router.push(`/${border.cca3}`)}
                 >
                   {border.name.common}
-                </Badge>
+                </Button>
               ))}
             </>
           )}

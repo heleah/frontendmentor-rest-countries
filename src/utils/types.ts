@@ -20,6 +20,7 @@ type CountryName = {
 
 export type Border = {
   name: CountryName;
+  cca3: string;
 };
 
 /* type Currency = {
