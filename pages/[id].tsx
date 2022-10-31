@@ -50,7 +50,7 @@ const DetailsPage = ({ country, borders }: DetailsPageProps) => {
   return (
     <>
       <Header />
-      <main className="d-flex flex-column p-3" style={{ width: "90vw" }}>
+      <main className="d-flex flex-column p-3">
         <Button
           variant="light"
           className="my-4 shadow"

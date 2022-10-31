@@ -45,6 +45,10 @@ a {
   width: 80vw;
 }
 
+.details-img {
+  width: 300px;
+}
+
 @media (min-width: 768px) {
   .country-search {
     width: 33vw;
@@ -60,5 +64,16 @@ a {
 
   .card-img {
     height: 150px;
+  }
+
+  .details-wrapper {
+    width: 100vw;
+  }
+
+  .details-img {
+    max-width: 500px;
+    width: 80%;
+    max-height: 300px;
+    align-self: center;
   }
 }
