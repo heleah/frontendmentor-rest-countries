@@ -1,3 +1,4 @@
+import { useTheme } from "next-themes";
 import Head from "next/head";
 import { useState } from "react";
 import ContinentDropdown from "../src/components/ContinentDropdown";
@@ -29,6 +30,7 @@ interface HomeProps {
 
 const Home = ({ countries }: HomeProps) => {
   const [shownCountries, setShownCountries] = useState(countries);
+  const { theme } = useTheme();
 
   function searchCountries(str: string) {
     const filtered = countries.filter((country) =>
@@ -42,6 +44,8 @@ const Home = ({ countries }: HomeProps) => {
     setShownCountries(filtered);
   }
 
+  const lightOrDark = theme === "light" ? "bg-light" : "bg-dark";
+
   return (
     <div>
       <Head>
@@ -50,7 +54,7 @@ const Home = ({ countries }: HomeProps) => {
       </Head>
 
       <main
-        className="d-flex flex-column align-items-center bg-light"
+        className={`d-flex flex-column align-items-center ${lightOrDark}`}
         style={{ height: "100vh" }}
       >
         <Header />

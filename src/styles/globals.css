@@ -26,19 +26,32 @@ a {
   box-sizing: border-box;
 }
 
-/* @media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
-} */
+[data-theme="dark"] body {
+  color: white;
+}
 
 .country-search {
   width: 90vw;
   font-size: 12px;
+}
+
+[data-theme="dark"] {
+  background: #212529;
+}
+
+[data-theme="dark"] .country-search,
+[data-theme="dark"] .card-body,
+[data-theme="dark"] .country-search::placeholder {
+  background: rgb(108, 117, 125);
+  color: white;
+}
+
+[data-theme="dark"] .card-body {
+  border-radius: 0 0 5px 5px;
+}
+
+[data-theme="dark"] .card-img {
+  border-radius: 5px 5px 0 0;
 }
 
 .country-card {

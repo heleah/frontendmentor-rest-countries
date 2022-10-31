@@ -21,7 +21,7 @@ const CountryCard = ({ country }: CountryCardProps) => {
         role="button"
         className="card-img"
       />
-      <Card.Body className="p-4 pb-5">
+      <Card.Body className="p-4 pb-5 card-body">
         <Card.Title className="fw-bold">{name.common}</Card.Title>
         <Card.Text>
           <span className="fw-semibold">Population:</span>{" "}

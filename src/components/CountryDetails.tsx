@@ -2,6 +2,7 @@ import Image from "react-bootstrap/Image";
 import Button from "react-bootstrap/Button";
 import { Country, Border } from "../utils/types";
 import { useRouter } from "next/router";
+import { useTheme } from "next-themes";
 
 interface CountryDetailsProps {
   country: Country;
@@ -22,6 +23,9 @@ const CountryDetails = ({ country, borders }: CountryDetailsProps) => {
   } = country;
 
   const router = useRouter();
+  const { theme } = useTheme();
+
+  const lightOrDarkBadge = theme === "light" ? "light" : "secondary";
 
   return (
     country && (
@@ -84,7 +88,7 @@ const CountryDetails = ({ country, borders }: CountryDetailsProps) => {
                 {Object.values(borders).map((border) => (
                   <Button
                     key={border.name.common}
-                    variant="light"
+                    variant={lightOrDarkBadge}
                     className="m-1 p-2 shadow"
                     onClick={() => router.push(`/${border.cca3}`)}
                   >
