@@ -12,7 +12,7 @@ const ContinentDropdown = ({ onClick }: ContinentDropdownProps) => {
     <DropdownButton
       title="Filter by Region"
       variant="secondary"
-      className="align-self-start mx-3 my-2"
+      className="align-self-start align-self-md-center mx-3 my-2"
       size="sm"
     >
       {REGIONS.map((region) => (

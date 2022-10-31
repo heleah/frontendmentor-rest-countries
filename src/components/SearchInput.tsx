@@ -7,8 +7,7 @@ const SearchInput = ({ onSearch }: SearchInputProps) => {
     <input
       type="text"
       placeholder="Search for a country..."
-      className="m-4 p-2 border border-0 shadow-sm rounded"
-      style={{ width: "90vw", fontSize: "12px" }}
+      className="m-4 p-2 border border-0 shadow-sm rounded country-search"
       onChange={(e) => onSearch(e.target.value)}
     />
   );

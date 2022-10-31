@@ -54,8 +54,10 @@ const Home = ({ countries }: HomeProps) => {
         style={{ height: "100vh" }}
       >
         <Header />
-        <SearchInput onSearch={searchCountries} />
-        <ContinentDropdown onClick={filterByRegion} />
+        <section className="d-md-inline-flex align-items-md-center justify-content-md-between px-md-5 search-filter">
+          <SearchInput onSearch={searchCountries} />
+          <ContinentDropdown onClick={filterByRegion} />
+        </section>
         <CountryList countries={shownCountries} />
       </main>
     </div>

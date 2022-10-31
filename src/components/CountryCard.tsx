@@ -12,11 +12,15 @@ const CountryCard = ({ country }: CountryCardProps) => {
 
   return (
     <Card
-      className="my-4 border border-0 shadow-sm"
-      style={{ width: "80vw" }}
+      className="my-4 border border-0 shadow-sm country-card"
       onClick={() => router.push(`/${cca3.toLowerCase()}`)}
     >
-      <Card.Img variant="top" src={flags.png} role="button" />
+      <Card.Img
+        variant="top"
+        src={flags.png}
+        role="button"
+        className="card-img"
+      />
       <Card.Body className="p-4 pb-5">
         <Card.Title className="fw-bold">{name.common}</Card.Title>
         <Card.Text>

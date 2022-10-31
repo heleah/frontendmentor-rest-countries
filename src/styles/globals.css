@@ -35,3 +35,30 @@ a {
     background: black;
   }
 } */
+
+.country-search {
+  width: 90vw;
+  font-size: 12px;
+}
+
+.country-card {
+  width: 80vw;
+}
+
+@media (min-width: 768px) {
+  .country-search {
+    width: 33vw;
+  }
+
+  .search-filter {
+    width: 90vw;
+  }
+
+  .country-card {
+    width: 250px;
+  }
+
+  .card-img {
+    height: 150px;
+  }
+}
