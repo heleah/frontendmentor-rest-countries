@@ -22,12 +22,12 @@ Users should be able to:
 - Filter countries by region
 - Click on a country to see more detailed information on a separate page
 - Click through to the border countries on the detail page
-- _(pending)_ Toggle the color scheme between light and dark mode
+- Toggle the color scheme between light and dark mode
 
 ### Links
 
 - Solution URL: _(pending)_
-- Live Site URL: _(pending)_
+- Live Site URL: [Deployed with Vercel](https://frontendmentor-rest-countries.vercel.app/)
 
 ## My process
 
@@ -40,6 +40,7 @@ Users should be able to:
 - [TypeScript](https://www.typescriptlang.org/) - Typed JS
 - [Next.js](https://nextjs.org/) - React framework
 - [Bootstrap](https://getbootstrap.com/) + [React Bootstrap](https://react-bootstrap.github.io/) - For styles
+- [next-themes](https://github.com/pacocoursey/next-themes) - abstraction for themes used for Dark Mode
 
 ## Run locally
 

@@ -26,8 +26,13 @@ a {
   box-sizing: border-box;
 }
 
+body {
+  background: rgb(248, 249, 250);
+}
+
 [data-theme="dark"] body {
   color: white;
+  background: #212529;
 }
 
 .country-search {
@@ -35,8 +40,12 @@ a {
   font-size: 12px;
 }
 
-[data-theme="dark"] {
-  background: #212529;
+.country-card {
+  width: 80vw;
+}
+
+.details-img {
+  width: 300px;
 }
 
 [data-theme="dark"] .country-search,
@@ -52,14 +61,6 @@ a {
 
 [data-theme="dark"] .card-img {
   border-radius: 5px 5px 0 0;
-}
-
-.country-card {
-  width: 80vw;
-}
-
-.details-img {
-  width: 300px;
 }
 
 @media (min-width: 768px) {
