@@ -9,7 +9,7 @@ const CountryList = ({ countries }: CountryListProps) => {
   return (
     <section className="d-md-flex flex-md-wrap gap-md-5 justify-content-md-center">
       {countries.map((country: Country) => (
-        <CountryCard key={country.name.common} country={country} />
+        <CountryCard key={country.name} country={country} />
       ))}
     </section>
   );

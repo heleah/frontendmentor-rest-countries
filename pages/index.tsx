@@ -10,7 +10,7 @@ import { Country } from "../src/utils/types";
 export async function getStaticProps() {
   try {
     const res = await fetch(
-      "https://restcountries.com/v3.1/all?fields=cca3,name,flags,population,region,capital"
+      "https://restcountries.com/v2/all?fields=alpha3Code,name,nativeName,flags,population,region,capital"
     );
     const countries = await res.json();
 
@@ -34,7 +34,7 @@ const Home = ({ countries }: HomeProps) => {
 
   function searchCountries(str: string) {
     const filtered = countries.filter((country) =>
-      country.name.common.toLowerCase().startsWith(str.toLowerCase())
+      country.name.toLowerCase().startsWith(str.toLowerCase())
     );
     setShownCountries(filtered);
   }

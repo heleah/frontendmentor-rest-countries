@@ -1,9 +1,10 @@
 export type Country = {
-  name: CountryName;
-  tld: string[];
-  cca3: string;
+  name: string;
+  nativeName: string;
+  topLevelDomain: string[];
+  alpha3Code: string;
   currencies: any;
-  capital: [];
+  capital: string;
   region: string;
   subregion: string;
   languages: any;
@@ -12,21 +13,7 @@ export type Country = {
   flags: { png: string; svg: string };
 };
 
-type CountryName = {
-  common: string;
-  official: string;
-  nativeName: { [lang: string]: { official: string; common: string } };
-};
-
 export type Border = {
-  name: CountryName;
-  cca3: string;
+  name: string;
+  alpha3Code: string;
 };
-
-/* type Currency = {
-  [curr: string]: string;
-};
-
-type Language = {
-  [short: string]: string;
-}; */

@@ -6,11 +6,11 @@ import { useRouter } from "next/router";
 import { useTheme } from "next-themes";
 
 export async function getStaticPaths() {
-  const res = await fetch("https://restcountries.com/v3.1/all?fields=cca3");
+  const res = await fetch("https://restcountries.com/v2/all?fields=alpha3Code");
   const data = await res.json();
 
   const paths = data.map((e: Country) => ({
-    params: { id: e.cca3 },
+    params: { id: e.alpha3Code },
   }));
 
   return { paths, fallback: true };
@@ -19,19 +19,18 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }: any) {
   try {
     const res = await fetch(
-      `https://restcountries.com/v3.1/alpha/${params.id}?fields=cca3,name,flags,population,region,capital,subregion,tld,currencies,borders,languages`
+      `https://restcountries.com/v2/alpha/${params.id}?fields=alpha3Code,name,nativeName,flags,population,region,capital,subregion,topLevelDomain,currencies,borders,languages`
     );
     const country = await res.json();
 
     const borders = await Promise.all(
       country.borders?.map(async (border: string) => {
         const res = await fetch(
-          `https://restcountries.com/v3.1/alpha/${border}?fields=name,cca3`
+          `https://restcountries.com/v2/alpha/${border}?fields=name,alpha3Code`
         );
         return await res.json();
       })
     );
-
     return {
       props: { country, borders },
     };
